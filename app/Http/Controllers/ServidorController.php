@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\ServidorRepositoryInterface;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreServidor;
 class ServidorController extends Controller
 {
     private $repository;
@@ -39,9 +39,9 @@ class ServidorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreServidor $request)
     {
-        //
+        dd($request);
     }
 
     /**

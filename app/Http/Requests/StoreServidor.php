@@ -13,7 +13,7 @@ class StoreServidor extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,8 @@ class StoreServidor extends FormRequest
     {
         return [
             'descripcion' => 'required|max:200',
-            'ip'=>'required|ip',
-            'host'=>'required'
+            "ip"=> "required|ip",
+            "host"=> "required"
         ];
     }
 }
