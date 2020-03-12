@@ -18,6 +18,7 @@ class CreateServidoresTable extends Migration
             $table->timestamps();
             $table->ipAddress('ip');
             $table->string('descripcion', 200);
+            $table->string('host', 50);
         });
     }
 

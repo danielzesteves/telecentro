@@ -20,7 +20,7 @@ class ServidorController extends Controller
      */
     public function index()
     {
-        return $this->repository->all();
+        return response($this->repository->all(), 200);
     }
 
     /**
@@ -52,7 +52,7 @@ class ServidorController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->repository->find($id);
     }
 
     /**
