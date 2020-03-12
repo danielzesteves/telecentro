@@ -6,7 +6,7 @@ use App\Post;
 use App\Servidor;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class PostRepository implements ServidorRepositoryInterface
+class ServidorRepository implements ServidorRepositoryInterface
 {
     protected $model;
 
@@ -22,7 +22,7 @@ class PostRepository implements ServidorRepositoryInterface
 
     public function all()
     {
-        $this->model->all();
+        return $this->model->all();
     }
 
     public function create(array $data)

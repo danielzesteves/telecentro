@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ServidorRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ServidorController extends Controller
 {
+    private $repository;
+
+    public function __construct(ServidorRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }    
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,7 @@ class ServidorController extends Controller
      */
     public function index()
     {
-        //
+        return $this->repository->all();
     }
 
     /**
