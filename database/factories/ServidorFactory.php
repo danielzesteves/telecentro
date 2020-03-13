@@ -10,5 +10,6 @@ $factory->define(Servidor::class, function (Faker $faker) {
         "descripcion"=> $faker->text(200),
         "ip"=> $faker->ipv4,
         "host"=> $faker->domainName,
+        'ext'=> 'jpg'
     ];
 });

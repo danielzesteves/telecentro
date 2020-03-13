@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Clases\HandlerFile;
 use App\Repositories\ServidorRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreServidor;
@@ -39,9 +40,12 @@ class ServidorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreServidor $request)
+    public function store(StoreServidor $request, HandlerFile $handler)
     {
-        dd($request);
+        $request->merge(["ext"=>$request->file('file')->extension()]);
+        $servidor = $this->repository->create($request->all());
+        $url = $handler->saveFile($request->file('file'),$servidor->id);
+        return response($this->repository->all(), 200);
     }
 
     /**

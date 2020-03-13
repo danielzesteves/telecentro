@@ -11,7 +11,7 @@ class ServidoresTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Servidor::class, 50)->create();
+        factory(App\Servidor::class, 500)->create();
         factory(App\User::class, 3)->create();
     }
 }
