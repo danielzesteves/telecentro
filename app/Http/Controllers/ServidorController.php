@@ -6,6 +6,8 @@ use App\Clases\HandlerFile;
 use App\Repositories\ServidorRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreServidor;
+use App\Servidor;
+
 class ServidorController extends Controller
 {
     private $repository;
@@ -44,7 +46,7 @@ class ServidorController extends Controller
     {
         $request->merge(["ext"=>$request->file('file')->extension()]);
         $servidor = $this->repository->create($request->all());
-        $url = $handler->saveFile($request->file('file'),$servidor->id);
+        $handler->saveFile($request->file('file'),$servidor->id);
         return response($this->repository->all(), 200);
     }
 
@@ -77,9 +79,13 @@ class ServidorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, HandlerFile $handler)
     {
-        //
+        Servidor::find($id)->update($request->all());
+        if ($request->hasFile('file')) {
+            $handler->saveFile($request->file('file'),$id);
+        }
+        return response($this->repository->all(), 200);
     }
 
     /**
@@ -90,6 +96,7 @@ class ServidorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->repository->delete($id);
+        return response($this->repository->all(), 200);
     }
 }

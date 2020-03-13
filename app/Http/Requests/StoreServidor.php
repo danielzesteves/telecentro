@@ -27,7 +27,7 @@ class StoreServidor extends FormRequest
             'descripcion' => 'required|max:200',
             "ip"=> "required|ip",
             "host"=> "required",
-            "file"=> "required"
+           // "file"=> "required"
         ];
     }
 }
