@@ -7,6 +7,7 @@ En la maquina que se ejecute no debe estar corriendo apache2, ni nginx ni mysql 
 EN la raiz de la carpeta docker ejecutar lo siguiente
 
 Iniciar contendor
+cp env-example .env
 docker-compose up -d nginx mysql
 
 Entrar al contendor
