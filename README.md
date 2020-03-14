@@ -17,6 +17,8 @@ docker-compose exec workspace bash
 -------LARAVEL--------
 Pasos para instalacion
 
+User archivo .env_PARA_USAR
+
 Dentro del contenedsor ejecutar los siguientes comandos
 
 composer install
