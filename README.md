@@ -2,14 +2,17 @@
 
 ---DOCKER---
 
-El archivo .env modificar la version de Mysql a 5.7 ya que con la ultima
-version da error
+En la maquina que se ejecute no debe estar corriendo apache2, ni nginx ni mysql ya que generar conflictp
+
+EN la raiz de la carpeta docker ejecutar lo siguiente
 
 Iniciar contendor
 docker-compose up -d nginx mysql
 
 Entrar al contendor
 docker-compose exec workspace bash
+
+
 
 -------LARAVEL--------
 Pasos para instalacion
@@ -27,7 +30,7 @@ Generar migracion y seeders
 php artisan migrate:fresh --seed
 
 Passport
-
+php artisan passport:client --personal
 php artisan passport:keys
 php artisan vendor:publish --tag=passport-components
 
