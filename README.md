@@ -8,7 +8,7 @@ EN la raiz de la carpeta docker ejecutar lo siguiente
 
 Iniciar contendor
 cp env-example .env
-
+Modificar APP_CODE_PATH_HOST en el archivo ".env" y colocar la raiz del proyecto
 docker-compose up -d nginx mysql
 
 Entrar al contendor
